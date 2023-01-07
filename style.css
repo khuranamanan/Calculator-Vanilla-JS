@@ -40,6 +40,12 @@ body{
     border-radius: 0.5rem;
 }
 
+@media (max-width: 1024px) {
+    .calculator-container {
+        width: 80%;
+    }
+}
+
 @media (max-width: 768px) {
     .calculator-container {
         width: 100%;
