@@ -9,6 +9,7 @@
     --secondary-lighter: hsla(210, 90%, 90%, 1);
     --tertiary-color: whitesmoke;
     --white: white;
+    --button-color: #032247;
 }
 
 *{
@@ -96,7 +97,7 @@ body{
     border: 1px solid var(--tertiary-color);
     user-select: none;
     cursor: pointer;
-    color: var(--primary-color);
+    color: var(--button-color);
 }
 
 .calculator-container > button:hover{
