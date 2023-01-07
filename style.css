@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+
+:root{
+    --primary-color: hsla(212, 93%, 49%, 1);
+    --primary-hover: hsla(212, 93%, 69%, 1);
+    --secondary-color: hsla(210, 90%, 80%, 1);
+    --secondary-hover: hsla(210, 90%, 70%, 1);
+    --secondary-lighter: hsla(210, 90%, 90%, 1);
+    --tertiary-color: whitesmoke;
+    --white: white;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    margin: 0;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.calculator-container{
+    margin: 0.8rem;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-width: 25rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(6.25rem, auto) repeat(5, 6.25rem);
+    background-color: var(--white);
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+.span-2{
+    grid-column: span 2;
+}
+
+.output-display{
+    grid-column: 1/-1;
+    background-color: var(--primary-color);
+    border: 1px solid var(--tertiary-color);
+    color: var(--secondary-lighter);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.output-display .current-operand::selection,
+.output-display .previous-operand::selection
+{
+    color: var(--white);
+    background-color: var(--secondary-color);
+}
+
+.output-display .previous-operand{
+    font-size: 1.2rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output-display .current-operand{
+    font-size: 2rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.calculator-container > button{
+    font-weight: 500;
+    font-size: x-large;
+    /* outline: none; */
+    background-color: var(--secondary-color);
+    border: 1px solid var(--tertiary-color);
+    user-select: none;
+    cursor: pointer;
+}
+
+.calculator-container > button:hover{
+    transition: 250ms ease-in-out;
+    background-color: var(--secondary-hover);
+}
+
+.calculator-container .dot-button{
+    border-bottom-left-radius: 0.25rem;
+}
+
+.calculator-container .equal-button{
+    border-radius: 0.25rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-lighter);
+    font-size: 2rem;
+}
+
+.calculator-container .equal-button:hover{
+    transition: 250ms ease-in-out;
+    background-color: var(--primary-hover);
+}
