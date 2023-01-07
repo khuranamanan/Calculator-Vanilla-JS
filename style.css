@@ -90,6 +90,7 @@ body{
     border: 1px solid var(--tertiary-color);
     user-select: none;
     cursor: pointer;
+    color: var(--primary-color);
 }
 
 .calculator-container > button:hover{
