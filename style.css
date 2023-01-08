@@ -91,13 +91,18 @@ body{
 
 .calculator-container > button{
     font-weight: 500;
-    font-size: x-large;
-    /* outline: none; */
+    font-size: 1.8rem;
     background-color: var(--secondary-color);
     border: 1px solid var(--tertiary-color);
     user-select: none;
     cursor: pointer;
     color: var(--button-color);
+}
+
+/* class="bigger-font-size" */
+
+.calculator-container .bigger-font-size{
+    font-size: 2.5rem;
 }
 
 .calculator-container > button:hover{
@@ -113,10 +118,16 @@ body{
     border-radius: 0.25rem;
     background-color: var(--primary-color);
     color: var(--secondary-lighter);
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .calculator-container .equal-button:hover{
     transition: 250ms ease-in-out;
     background-color: var(--primary-hover);
+}
+
+.calculator-container .delete-button > svg{
+    width: 2rem;
+    height: auto;
+    fill: var(--button-color);
 }
