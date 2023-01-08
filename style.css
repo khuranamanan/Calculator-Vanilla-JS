@@ -97,6 +97,7 @@ body{
     user-select: none;
     cursor: pointer;
     color: var(--button-color);
+    touch-action: manipulation;
 }
 
 /* class="bigger-font-size" */
