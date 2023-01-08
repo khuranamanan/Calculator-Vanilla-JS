@@ -39,6 +39,7 @@ body{
     background-color: var(--white);
     padding: 0.2rem;
     border-radius: 0.5rem;
+    touch-action: manipulation;
 }
 
 @media (max-width: 1024px) {
@@ -97,10 +98,8 @@ body{
     user-select: none;
     cursor: pointer;
     color: var(--button-color);
-    touch-action: manipulation;
+    /* touch-action: manipulation; */
 }
-
-/* class="bigger-font-size" */
 
 .calculator-container .bigger-font-size{
     font-size: 2.5rem;
