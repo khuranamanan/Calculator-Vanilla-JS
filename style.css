@@ -101,9 +101,9 @@ body{
     /* touch-action: manipulation; */
 }
 
-.calculator-container .bigger-font-size{
+/* .calculator-container .bigger-font-size{
     font-size: 2.5rem;
-}
+} */
 
 .calculator-container > button:hover{
     transition: 250ms ease-in-out;
@@ -118,7 +118,7 @@ body{
     border-radius: 0.25rem;
     background-color: var(--primary-color);
     color: var(--secondary-lighter);
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .calculator-container .equal-button:hover{
