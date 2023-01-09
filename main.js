@@ -98,8 +98,6 @@ const currentOperandElement = document.querySelector("[data-current-operand]");
 
 const calculator = new Calculator(previousOperandElement, currentOperandElement);
 
-console.log(calculator);
-
 numberButtons.forEach(button => {
     button.addEventListener("click", () => {
         calculator.appendNum(button.innerText);
@@ -132,7 +130,6 @@ deleteButton.addEventListener("click", () => {
 document.addEventListener("keydown", keyboardInteraction)
 
 function keyboardInteraction(e) {
-    console.log(e);
     if ((/[0-9]|\./).test(e.key)) {
         calculator.appendNum(e.key);
         calculator.updateDisplay();
