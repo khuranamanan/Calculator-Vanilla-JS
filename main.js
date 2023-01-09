@@ -12,7 +12,8 @@ class Calculator {
     }
 
     delete() {
-        this.currentOperand = this.currentOperand.toString().slice(0,-1);
+        if (this.currentOperand === "") this.clear();
+        this.currentOperand = this.currentOperand.toString().slice(0, -1);
     }
 
     appendNum(number) {
@@ -34,7 +35,7 @@ class Calculator {
         let result;
         let previous = parseFloat(this.previousOperand);
         let current = parseFloat(this.currentOperand);
-        if(isNaN(previous) || isNaN(current)) return;
+        if (isNaN(previous) || isNaN(current)) return;
         switch (this.operation) {
             case "+":
                 result = previous + current;
@@ -57,17 +58,17 @@ class Calculator {
         this.operation = undefined;
     }
 
-    getCommasInNumbers(number){
+    getCommasInNumbers(number) {
         let numArr = number.toString().split(".");
         let integerNum = parseFloat(numArr[0]);
         let decimalNum = numArr[1];
         let integerDisplay;
-        if(isNaN(integerNum)){
+        if (isNaN(integerNum)) {
             integerDisplay = ""
         } else {
             integerDisplay = integerNum.toLocaleString("en-IN");
         }
-        if(decimalNum != null){
+        if (decimalNum != null) {
             return `${integerDisplay}.${decimalNum}`;
         } else {
             return integerDisplay;
@@ -79,10 +80,10 @@ class Calculator {
         // this.previousOperandElement.innerText = this.previousOperand;
         if (this.operation != null) {
             this.previousOperandElement.innerText =
-              `${this.getCommasInNumbers(this.previousOperand)} ${this.operation}`
-          } else {
+                `${this.getCommasInNumbers(this.previousOperand)} ${this.operation}`
+        } else {
             this.previousOperandElement.innerText = ''
-          }
+        }
     }
 }
 
@@ -127,3 +128,39 @@ deleteButton.addEventListener("click", () => {
     calculator.delete();
     calculator.updateDisplay();
 })
+
+document.addEventListener("keydown", keyboardInteraction)
+
+function keyboardInteraction(e) {
+    console.log(e);
+    if ((/[0-9]|\./).test(e.key)) {
+        calculator.appendNum(e.key);
+        calculator.updateDisplay();
+        return;
+    } else if (e.key === "Backspace") {
+        calculator.delete();
+        calculator.updateDisplay();
+        return;
+    } else if (e.key === "*") {
+        calculator.chooseOperation("×");
+        calculator.updateDisplay();
+        return;
+    } else if (e.key === "/") {
+        calculator.chooseOperation("÷");
+        calculator.updateDisplay();
+        return;
+    } else if (e.key === "+") {
+        calculator.chooseOperation("+");
+        calculator.updateDisplay();
+        return;
+    } else if (e.key === "-") {
+        calculator.chooseOperation("-");
+        calculator.updateDisplay();
+        return;
+    } else if (e.key === "Enter") {
+        calculator.compute();
+        calculator.updateDisplay();
+        return;
+    }
+    return;
+}
