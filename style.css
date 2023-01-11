@@ -98,8 +98,37 @@ body{
     user-select: none;
     cursor: pointer;
     color: var(--button-color);
+    overflow: hidden;
     /* touch-action: manipulation; */
 }
+
+button {
+    overflow: hidden;
+    position: relative;
+}
+
+button > span{
+    position: absolute;
+    background-color: var(--white);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animatebuttonTouch 1s linear infinite
+}
+
+@keyframes animatebuttonTouch {
+    0%{
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+    }
+    100%{
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+}
+
 
 .calculator-container .bigger-font-size{
     font-size: 2rem;

@@ -94,6 +94,7 @@ const deleteButton = document.querySelector("[data-delete]");
 const equalsButton = document.querySelector("[data-equals]");
 const previousOperandElement = document.querySelector("[data-previous-operand]");
 const currentOperandElement = document.querySelector("[data-current-operand]");
+const allButtons = document.querySelectorAll("button");
 
 
 const calculator = new Calculator(previousOperandElement, currentOperandElement);
@@ -161,3 +162,21 @@ function keyboardInteraction(e) {
     }
     return;
 }
+
+console.log(allButtons)
+//Adding ripple effect to all the buttons
+allButtons.forEach((btn)=>{
+    btn.addEventListener("click",function(e){
+        let x = e.pageX - e.target.offSetLeft;
+        let y = e.pageY - e.target.offSetTop;
+
+        let ripples = document.createElement("span");
+        ripples.style.left = x + "px";
+        ripples.style.top = y + "px";
+        this.appendChild(ripples);
+
+        setTimeout(()=>{
+            ripples.remove()
+        },1000);
+    })
+})
